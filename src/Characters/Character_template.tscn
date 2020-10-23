@@ -8,6 +8,7 @@ radius = 19.3085
 height = 42.0794
 
 [node name="Character_template" type="KinematicBody2D"]
+scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
