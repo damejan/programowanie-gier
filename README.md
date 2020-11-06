@@ -5,3 +5,4 @@
 2. ~ Added backgrounds and test sprite ^^ ~ !!! -> Do testów wykorzystywać "Alpha_Background.png" i "Test_sprite.png"
 30.10 - wstawilem to co zdazylem, sry ze byle gdzie :P
 06.11 - Shotting https://www.youtube.com/watch?v=cei9BZMzVLY
+SRY za syf XD
