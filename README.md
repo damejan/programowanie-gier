@@ -9,3 +9,4 @@ SRY za syf XD
 
 
 https://abitawake.com/news/articles/enemy-ai-chasing-a-player-without-navigation2d-or-a-star-pathfinding
+https://www.youtube.com/watch?v=F_7lCe7LQa4
