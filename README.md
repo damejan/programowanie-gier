@@ -6,3 +6,6 @@
 30.10 - wstawilem to co zdazylem, sry ze byle gdzie :P
 06.11 - Shotting https://www.youtube.com/watch?v=cei9BZMzVLY
 SRY za syf XD
+
+
+https://abitawake.com/news/articles/enemy-ai-chasing-a-player-without-navigation2d-or-a-star-pathfinding
