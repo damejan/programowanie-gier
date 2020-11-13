@@ -19,6 +19,10 @@ config/name="project"
 run/main_scene="res://Levels/TestLevel.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://Global.tscn"
+
 [input]
 
 player_up={
@@ -50,4 +54,5 @@ player_left={
 
 [rendering]
 
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

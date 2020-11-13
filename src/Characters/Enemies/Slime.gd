@@ -21,8 +21,8 @@ func move():
 		#look_at(path[0])
 		move_and_slide(motion)
 		
-		print("(", int(path[0].x), ",", int(path[0].y), "), (", int(position.x),",", int(position.y), ")", player_in_pov)
-		print(path, path.size())
+		#print("(", int(path[0].x), ",", int(path[0].y), "), (", int(position.x),",", int(position.y), ")", player_in_pov)
+		#print(path, path.size())
 		
 		if path[0].x - position.x < 5 and path[0].y - position.y < 5:
 			#print("(", int(path[0].x), ",", int(position.x), "), (", int(path[0].y),",", int(position.y), ")", player_in_pov)
@@ -30,7 +30,7 @@ func move():
 			path.remove(0)
 	
 	if is_on_wall():
-		print("test")
+		#print("test")
 		make_path()
 	
 	if player_in_pov and path.size() == 0:
@@ -57,5 +57,12 @@ func _on_POV_body_exited(body):
 
 func _on_Player_move():
 	if player_in_pov and path.size() < 2:
-		print("test")
+		#print("test")
 		make_path()
+
+
+func _on_HitBox_body_entered(body):
+	if body.name == "Player":
+		Global.hurt_player()
+	if body is KinematicBody2D:
+		pass

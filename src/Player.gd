@@ -28,3 +28,8 @@ func update_movement():
 		emit_signal("move")
 	else:
 		motion.x = lerp(motion.x, 0, resistance)
+
+func hurt():
+	motion.y = -max_speed
+	motion.x = -max_speed
+	print("hurt player")
