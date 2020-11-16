@@ -17,6 +17,7 @@ _global_script_class_icons={
 
 config/name="project"
 run/main_scene="res://Levels/TestLevel.tscn"
+boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
 config/icon="res://icon.png"
 
 [autoload]
@@ -54,5 +55,5 @@ player_left={
 
 [rendering]
 
-environment/default_clear_color=Color( 0, 0, 0, 1 )
+environment/default_clear_color=Color( 0.0666667, 0.0470588, 0.152941, 1 )
 environment/default_environment="res://default_env.tres"
