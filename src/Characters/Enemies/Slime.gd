@@ -23,21 +23,24 @@ func move():
 		
 		#print("(", int(path[0].x), ",", int(path[0].y), "), (", int(position.x),",", int(position.y), ")", player_in_pov)
 		#print(path, path.size())
+		#print(motion, path[0])
+		print(self.name, path)
 		
-		if path[0].x - position.x < 5 and path[0].y - position.y < 5:
+		if path[0].x - position.x < 2 and path[0].y - position.y < 2:
 			#print("(", int(path[0].x), ",", int(position.x), "), (", int(path[0].y),",", int(position.y), ")", player_in_pov)
 			#print(path)
 			path.remove(0)
+			
 	
-	if is_on_wall():
-		#print("test")
-		make_path()
+#	if is_on_wall():
+#		#print("test")
+#		make_path()
 	
-	if player_in_pov and path.size() == 0:
+	if player_in_pov and path.size() < 2:
 		make_path()
 
 func make_path():
-	path = navigation.get_simple_path(position, player.position, false)
+	path = navigation.get_simple_path(position, player.position, true)
 	path.remove(0)
 
 func _on_POV_body_entered(body):
@@ -51,18 +54,22 @@ func _on_POV_body_entered(body):
 
 func _on_POV_body_exited(body):
 	player_in_pov = false
-	if path.size() < 1:
-		path = [];
+	path = [];
 
 
 func _on_Player_move():
-	if player_in_pov and path.size() < 2:
+	if player_in_pov:
 		#print("test")
 		make_path()
 
 
 func _on_HitBox_body_entered(body):
+	print(body.name)
 	if body.name == "Player":
 		Global.hurt_player()
-	if body is KinematicBody2D:
+	elif body.name == "TileMapItems":
+		path.insert(0, Vector2(-position.x, -position.y))
+		make_path()
 		pass
+	elif body is KinematicBody2D:
+		make_path()
