@@ -23,9 +23,9 @@ animations = [ {
 "speed": 30.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 7.2619
-height = 12.0761
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 7.03827
+height = 10.3464
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 9.97761
@@ -41,12 +41,12 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-playing = true
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.0548512, 6.88618 )
+position = Vector2( -0.102639, 2.39771 )
 rotation = -1.54931
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 
 [node name="HitBox" type="Area2D" parent="."]
 visible = false
