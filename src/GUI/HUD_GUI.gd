@@ -1,7 +1,10 @@
 extends CanvasLayer
 
-#func _ready():
-#	create_hearts()
+func _ready():
+	$Control/HBoxContainer/Label.text = str(Global.hp)
+	
+func update_gui(hp):
+	$Control/HBoxContainer/Label.text = str(hp)
 	
 #func create_hearts():
 #	var heart = TextureRect.new()
