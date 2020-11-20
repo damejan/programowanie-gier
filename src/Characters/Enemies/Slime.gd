@@ -44,7 +44,7 @@ func move():
 #		path.insert(0, Vector2(-position.x * 0.5, -position.y * 0.5))
 #		blocked = false
 	
-	if player_in_pov and path.size() < 2:
+	if player_in_pov and path.size() < 3:
 		make_path()
 
 func make_path():
@@ -67,7 +67,7 @@ func _on_POV_body_exited(body):
 
 func _on_Player_move():
 	if player_in_pov:
-		#print("test")
+		print("test")
 		make_path()
 
 

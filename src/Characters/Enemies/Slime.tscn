@@ -23,12 +23,12 @@ animations = [ {
 "speed": 30.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=5]
-radius = 7.03827
-height = 10.3464
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 8.17378
+height = 8.94538
 
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 9.97761
+radius = 11.0939
 height = 12.6409
 
 [sub_resource type="CircleShape2D" id=4]
@@ -41,14 +41,14 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-frame = 3
+frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( -0.028313, 7.00589 )
 rotation = -1.54931
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="HitBox" type="Area2D" parent="."]
 __meta__ = {
@@ -56,6 +56,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+visible = false
 position = Vector2( 0.0548512, 6.09158 )
 rotation = -1.56101
 shape = SubResource( 3 )
@@ -67,6 +68,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="POV"]
+visible = false
 shape = SubResource( 4 )
 [connection signal="body_entered" from="HitBox" to="." method="_on_HitBox_body_entered"]
 [connection signal="body_entered" from="POV" to="." method="_on_POV_body_entered"]
