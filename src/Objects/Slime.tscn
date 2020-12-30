@@ -43,6 +43,7 @@ script = ExtResource( 14 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+frame = 6
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -73,5 +74,6 @@ visible = false
 shape = SubResource( 4 )
 [connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_HitBox_body_entered"]
+[connection signal="body_exited" from="HitBox" to="." method="_on_HitBox_body_exited"]
 [connection signal="body_entered" from="POV" to="." method="_on_POV_body_entered"]
 [connection signal="body_exited" from="POV" to="." method="_on_POV_body_exited"]

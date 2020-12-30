@@ -330,10 +330,8 @@ position = Vector2( 537.212, 374.177 )
 collision_layer = 2147483649
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
-visible = false
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
-visible = false
 position = Vector2( 0.749161, 0 )
 navpoly = SubResource( 14 )
 
@@ -341,6 +339,38 @@ navpoly = SubResource( 14 )
 
 [node name="Slime" parent="Enemies" instance=ExtResource( 4 )]
 position = Vector2( 494.59, -106.658 )
+scale = Vector2( 2, 2 )
+
+[node name="Slime2" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 402.521, -24.1132 )
+scale = Vector2( 2, 2 )
+
+[node name="Slime3" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 667.617, -27.288 )
+scale = Vector2( 2, 2 )
+
+[node name="Slime4" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 629.519, 126.69 )
+scale = Vector2( 2, 2 )
+
+[node name="Slime5" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 380.297, 191.773 )
+scale = Vector2( 2, 2 )
+
+[node name="Slime6" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 467.604, 71.1307 )
+scale = Vector2( 2, 2 )
+
+[node name="Slime7" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 661.267, 263.206 )
+scale = Vector2( 2, 2 )
+
+[node name="Slime8" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 523.163, 215.584 )
+scale = Vector2( 2, 2 )
+
+[node name="Slime9" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 334.263, 69.5433 )
 scale = Vector2( 2, 2 )
 
 [node name="HUD_GUI" parent="." instance=ExtResource( 5 )]

@@ -26,20 +26,24 @@ func update_movement():
 	if Input.is_action_pressed("player_down") and not Input.is_action_pressed("player_up"):
 		motion.y = clamp(motion.y + speed, 0, max_speed)
 		emit_signal("move")
+		get_tree().call_group("Enemies", "player_moved_change_path")
 	elif Input.is_action_pressed("player_up") and not Input.is_action_pressed("player_down"):
 		motion.y = clamp(motion.y - speed, -max_speed, 0)
 		emit_signal("move")
+		get_tree().call_group("Enemies", "player_moved_change_path")
 	else:
 		motion.y = lerp(motion.y, 0, resistance)
 		
 	if Input.is_action_pressed("player_left") and not Input.is_action_pressed("player_right"):
 		motion.x = clamp(motion.x - speed, -max_speed, 0)
 		emit_signal("move")
+		get_tree().call_group("Enemies", "player_moved_change_path")
 #		$AnimatedSprite.play("run")
 #		$AnimatedSprite.flip_h = true;
 	elif Input.is_action_pressed("player_right") and not Input.is_action_pressed("player_left"):
 		motion.x = clamp(motion.x + speed, 0, max_speed)
 		emit_signal("move")
+		get_tree().call_group("Enemies", "player_moved_change_path")
 #		$AnimatedSprite.play("run")
 #		$AnimatedSprite.flip_h = false;
 	else:
@@ -81,6 +85,7 @@ func _on_Hitbox_body_entered(body):
 	
 	if body.is_in_group("Enemies"):
 		motion = (global_position - body.position) * (speed * 0.8)
+#		get_tree().call_group("Enemies", "player_moved_change_path")
 		Global.hurt_player()
 	
 	print("motion: ", motion)
