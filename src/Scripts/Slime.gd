@@ -55,6 +55,8 @@ func _on_HitBox_body_entered(body):
 	print("on_entereed: ", body, " ", body.name)
 	if body.is_in_group("Enemies"):
 		pass
+	elif body.is_in_group("Player"):
+		pass
 #		print(get_parent().get_node(body.name).name)
 #		get_parent().get_node(body.name).speed -= 20;
 

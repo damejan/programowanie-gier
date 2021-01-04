@@ -11,6 +11,12 @@ var bullet = preload("res://Objects/Hero/Bullet.tscn")
 
 signal move
 
+var enemy_in_hitbox = false;
+
+func _ready():
+	set_collision_mask_bit(1, true)
+	$Hitbox/CollisionShape2D.disabled = false;
+
 func _process(delta):
 	if Input.is_action_pressed("click") and Global.node_creation_parent != null and can_shoot:
 		Global.instance_node(bullet, global_position, Global.node_creation_parent)
@@ -65,18 +71,10 @@ func play_animation():
 #Shooting bullet
 
 func hurt(body):
-	pass
-#	print("enemy: ", body.position, " player: ", global_position)
-#	print(body.position.x - global_position.x)
-#	var diff = body.position.x - global_position.x
-#	if body.position.x > global_position.x + 15:
-#		print("test 1")
-#		motion.x = max_speed * 3
-#	if body.position.x < global_position.x + 15:
-#		print("test 2")
-#		motion.x = -max_speed * 10
-#	motion += (global_position - body.position) * max_speed
-#	print("motion: ", motion)
+	motion = (global_position - body.position) * (speed * 0.8)
+#	get_tree().call_group("Enemies", "player_moved_change_path")
+	Global.hurt_player()
+	$AnimationPlayer.play("hurt")
 
 
 func _on_Hitbox_body_entered(body):
@@ -84,13 +82,23 @@ func _on_Hitbox_body_entered(body):
 	print(body.position.x - global_position.x)
 	
 	if body.is_in_group("Enemies"):
-		motion = (global_position - body.position) * (speed * 0.8)
-#		get_tree().call_group("Enemies", "player_moved_change_path")
-		Global.hurt_player()
+		hurt(body)
+		enemy_in_hitbox = true;
+		$Enemy_in_hitbox.start()
 	
 	print("motion: ", motion)
 	print("body_name: ", body.name)
 
 
+func _on_Hitbox_body_exited(body):
+	if body.is_in_group("Enemies"):
+		enemy_in_hitbox = false
+
 func _on_Reload_speed_timeout():
 	can_shoot = true
+
+
+
+func _on_Enemy_in_hitbox_timeout():
+	if enemy_in_hitbox:
+		hurt(self)
