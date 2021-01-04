@@ -6,7 +6,6 @@
 [ext_resource path="res://Graphics/Characters/Skeleton/skelet_run_anim_f3.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/Skeleton_script.gd" type="Script" id=5]
 
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ) ],
@@ -27,13 +26,11 @@ playing = true
 [node name="Hitbox" type="Area2D" parent="AnimatedSprite"]
 
 [node name="Hitbox_collision" type="CollisionPolygon2D" parent="AnimatedSprite/Hitbox"]
-visible = false
 scale = Vector2( 4, 4 )
 build_mode = 1
 polygon = PoolVector2Array( -1.30234, -1.85293, 1.26479, -1.84053, 1.23998, 0.441362, 1.22758, 0.602583, 0.619906, 0.639788, 0.991953, 0.887819, 1.01676, 1.66912, -1.22793, 1.66912, -1.20312, 0.90022, -0.707062, 0.763803, -1.27753, 0.428961 )
 
 [node name="Collision" type="CollisionPolygon2D" parent="."]
-visible = false
 scale = Vector2( 4, 4 )
 build_mode = 1
 polygon = PoolVector2Array( -1.30234, -1.85293, 1.26479, -1.84053, 1.23998, 0.441362, 1.22758, 0.602583, 0.619906, 0.639788, 0.991953, 0.887819, 1.01676, 1.66912, -1.22793, 1.66912, -1.20312, 0.90022, -0.707062, 0.763803, -1.27753, 0.428961 )
