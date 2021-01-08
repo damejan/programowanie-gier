@@ -57,16 +57,25 @@ func update_movement():
 #		$AnimatedSprite.play("Mage_idle")
 
 func play_animation():
-	if Input.is_action_pressed("player_down") or Input.is_action_pressed("player_up"):
-		$AnimatedSprite.play("run")
-	elif Input.is_action_pressed("player_left") and not Input.is_action_pressed("player_right"):
-		$AnimatedSprite.play("run")
-		$AnimatedSprite.flip_h = true;
-	elif Input.is_action_pressed("player_right") and not Input.is_action_pressed("player_left"):
+	if motion.x > 0:
 		$AnimatedSprite.play("run")
 		$AnimatedSprite.flip_h = false;
+	elif motion.x < 0:
+		$AnimatedSprite.play("run")
+		$AnimatedSprite.flip_h = true;
 	else:
 		$AnimatedSprite.play("Mage_idle")
+		
+#	if Input.is_action_pressed("player_down") or Input.is_action_pressed("player_up"):
+#		$AnimatedSprite.play("run")
+#	elif Input.is_action_pressed("player_left") and not Input.is_action_pressed("player_right"):
+#		$AnimatedSprite.play("run")
+#		$AnimatedSprite.flip_h = true;
+#	elif Input.is_action_pressed("player_right") and not Input.is_action_pressed("player_left"):
+#		$AnimatedSprite.play("run")
+#		$AnimatedSprite.flip_h = false;
+#	else:
+#		$AnimatedSprite.play("Mage_idle")
 
 #Shooting bullet
 

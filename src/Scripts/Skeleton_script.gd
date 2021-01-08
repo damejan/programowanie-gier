@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var speed = 250; # base speed for all characters
+export var speed = 280; # base speed for all characters
 #var max_speed = 300; # base max_speed for all characters
 var resistance = 0.1; # 0.1s
 
@@ -33,7 +33,17 @@ func move_along_path(distance):
 		# The position to move to falls between two points.
 		if distance <= distance_between_points:
 #			position = last_point.linear_interpolate(path[0], distance / distance_between_points)
-			move_and_slide((path[0] - position).normalized() * speed)
+			var normalized_vector = (path[0] - position).normalized()
+#			print(normalized_vector)
+			move_and_slide(normalized_vector * speed)
+			
+			if normalized_vector.x > 0:
+				$AnimatedSprite.play("Skeleton_run")
+				$AnimatedSprite.flip_h = false
+			else:
+				$AnimatedSprite.play("Skeleton_run")
+				$AnimatedSprite.flip_h = true
+				
 			return
 		# The position is past the end of the segment.
 #		print("distance: ", distance, " distance_between_points: ", distance_between_points)
@@ -65,9 +75,11 @@ func _on_HitBox_body_exited(body):
 #		print(get_parent().get_node(body.name).name)
 #		get_parent().get_node(body.name).speed = 250;
 
-func _on_HitBox_area_entered(area):
+func _on_Hitbox_area_entered(area):
 	if area.is_in_group("Enemy_damager"):
 		hp -= 1
+		$Particles2D.emitting = true;
+		$AudioStreamPlayer.play()
 		area.get_parent().queue_free()
 		if hp < 0:
 			queue_free();

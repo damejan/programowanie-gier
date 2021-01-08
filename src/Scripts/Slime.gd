@@ -70,6 +70,8 @@ func _on_HitBox_body_exited(body):
 func _on_HitBox_area_entered(area):
 	if area.is_in_group("Enemy_damager"):
 		hp -= 1
+		$Particles2D.emitting = true
+		$AudioStreamPlayer.play()
 		area.get_parent().queue_free()
 		if hp < 0:
 			queue_free();
