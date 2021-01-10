@@ -12,6 +12,7 @@ var bullet = preload("res://Objects/Hero/Bullet.tscn")
 signal move
 
 var enemy_in_hitbox = false;
+var static_enemy_in_hitbox = false;
 
 func _ready():
 	set_collision_mask_bit(1, true)
@@ -22,6 +23,12 @@ func _process(delta):
 		Global.instance_node(bullet, global_position, Global.node_creation_parent)
 		$Reload_speed.start()
 		can_shoot = false
+	
+	if Input.is_action_pressed("test1"):
+		get_tree().call_group("Door", "open_door")
+		
+	if Input.is_action_pressed("test2"):
+		get_tree().call_group("Door", "close_door")
 
 func _physics_process(delta):
 	update_movement()
@@ -85,6 +92,9 @@ func hurt(body):
 	Global.hurt_player()
 	$AnimationPlayer.play("hurt")
 
+func hurt_from_area():
+	Global.hurt_player()
+	$AnimationPlayer.play("hurt")
 
 func _on_Hitbox_body_entered(body):
 	print("enemy: ", body.position, " player: ", global_position)
@@ -106,8 +116,19 @@ func _on_Hitbox_body_exited(body):
 func _on_Reload_speed_timeout():
 	can_shoot = true
 
-
-
 func _on_Enemy_in_hitbox_timeout():
 	if enemy_in_hitbox:
 		hurt(self)
+	if static_enemy_in_hitbox:
+		hurt_from_area()
+
+func _on_Hitbox_area_entered(area):
+	if area.is_in_group("Player_damager"):
+		hurt_from_area()
+		static_enemy_in_hitbox = true;
+		$Enemy_in_hitbox.start()
+
+
+func _on_Hitbox_area_exited(area):
+	if area.is_in_group("Player_damager"):
+		static_enemy_in_hitbox = false

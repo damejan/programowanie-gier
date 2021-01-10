@@ -82,7 +82,6 @@ position = Vector2( 0, -0.166855 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 1 )
 animation = "Mage_idle"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -108,6 +107,8 @@ one_shot = true
 anims/hurt = SubResource( 4 )
 
 [node name="Enemy_in_hitbox" type="Timer" parent="."]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
+[connection signal="area_exited" from="Hitbox" to="." method="_on_Hitbox_area_exited"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
 [connection signal="body_exited" from="Hitbox" to="." method="_on_Hitbox_body_exited"]
 [connection signal="timeout" from="Reload_speed" to="." method="_on_Reload_speed_timeout"]
