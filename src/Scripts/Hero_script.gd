@@ -122,13 +122,25 @@ func _on_Enemy_in_hitbox_timeout():
 	if static_enemy_in_hitbox:
 		hurt_from_area()
 
-func _on_Hitbox_area_entered(area):
+#func _on_Hitbox_area_entered(area):
+#	if area.is_in_group("Player_damager"):
+#		hurt_from_area()
+#		static_enemy_in_hitbox = true;
+#		$Enemy_in_hitbox.start()
+
+
+#func _on_Hitbox_area_exited(area):
+#	if area.is_in_group("Player_damager"):
+#		static_enemy_in_hitbox = false
+
+
+func _on_Foot_area_entered(area):
 	if area.is_in_group("Player_damager"):
 		hurt_from_area()
 		static_enemy_in_hitbox = true;
 		$Enemy_in_hitbox.start()
 
 
-func _on_Hitbox_area_exited(area):
+func _on_Foot_area_exited(area):
 	if area.is_in_group("Player_damager"):
 		static_enemy_in_hitbox = false
