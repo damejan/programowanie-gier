@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Graphics/Tilesets/Dragon/Dragon2.png" type="Texture" id=1]
+[ext_resource path="res://Graphics/Tilesets/Dragon/Dragon3.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/Tilesets/Dragon/Dragon4.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/Tilesets/Dragon/Dragon1.png" type="Texture" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+position = Vector2( 0.314972, -27.0883 )
+scale = Vector2( 4, 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+playing = true
+
+[node name="Hitbox" type="Area2D" parent="AnimatedSprite"]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="AnimatedSprite/Hitbox"]
+polygon = PoolVector2Array( 7.44933, 0.0283737, 7.51555, 8.70273, 5.26419, 8.70273, 5.59527, 14.9271, -6.51124, 15.0926, -6.52234, -3.4811, 0.695255, -3.41488, 2.8804, -0.435142 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 7.44933, 0.0283737, 7.51555, 8.70273, 5.26419, 8.70273, 5.59527, 14.9271, -6.51124, 15.0926, -6.52234, -3.4811, 0.695255, -3.41488, 2.8804, -0.435142 )

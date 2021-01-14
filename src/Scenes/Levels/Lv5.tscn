@@ -1,11 +1,12 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Graphics/Background/Background_final.png" type="Texture" id=1]
 [ext_resource path="res://Graphics/Background/Rock.png" type="Texture" id=2]
 [ext_resource path="res://Objects/Hero/Hero.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Dragon.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/GUI/HUD_GUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=6]
-[ext_resource path="res://Objects/Skeleton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Levels/PathOfDragon.gd" type="Script" id=7]
 [ext_resource path="res://Objects/static_objects/Spikes.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objects/static_objects/Door.tscn" type="PackedScene" id=9]
 
@@ -305,6 +306,11 @@ vertices = PoolVector2Array( 621.534, 344.698, 420.558, 341.13, 230.561, 317.982
 polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ), PoolIntArray( 6, 7, 8, 9, 10, 11, 12 ), PoolIntArray( 4, 13, 14, 15, 5 ), PoolIntArray( 16, 7, 6 ), PoolIntArray( 17, 18, 19, 20, 21 ), PoolIntArray( 22, 9, 15, 14, 23, 24 ), PoolIntArray( 25, 22, 24 ), PoolIntArray( 25, 24, 26, 27 ), PoolIntArray( 28, 27, 26 ), PoolIntArray( 29, 28, 26, 30 ), PoolIntArray( 31, 32, 33, 23, 19, 34, 35 ), PoolIntArray( 19, 23, 14, 20 ), PoolIntArray( 36, 35, 34, 37 ), PoolIntArray( 38, 36, 37, 39 ), PoolIntArray( 9, 22, 10 ), PoolIntArray( 21, 13, 4, 40, 17 ), PoolIntArray( 41, 17, 40, 42 ), PoolIntArray( 43, 41, 42, 44, 45, 46 ), PoolIntArray( 10, 27, 28, 11 ), PoolIntArray( 47, 6, 12, 29, 30 ), PoolIntArray( 16, 6, 48, 1 ), PoolIntArray( 49, 6, 47, 50 ), PoolIntArray( 3, 2, 51, 42 ), PoolIntArray( 44, 42, 51 ), PoolIntArray( 49, 50, 52, 53, 54, 55 ), PoolIntArray( 5, 8, 7, 0 ), PoolIntArray( 2, 1, 48 ), PoolIntArray( 18, 17, 39, 37 ), PoolIntArray( 46, 38, 39, 43 ), PoolIntArray( 2, 48, 55, 56 ), PoolIntArray( 57, 46, 45, 58 ), PoolIntArray( 59, 57, 58, 54 ), PoolIntArray( 44, 51, 60, 61 ), PoolIntArray( 62, 30, 26 ), PoolIntArray( 62, 26, 52, 50 ), PoolIntArray( 56, 55, 54, 60 ), PoolIntArray( 61, 60, 54, 58 ) ]
 outlines = [ PoolVector2Array( -7.51287, -119.42, -6.17803, 517.298, -5.95191, 654.422, 1045.52, 656.31, 1047.05, 377.85, 1047.31, 28.4178, 1047.41, -123.33, 1017.23, -123.887, 960.748, -124.195, 883.893, -122.935, 790.243, -122.621, 244.997, -121.118, 168.258, -119.156, 59.9044, -119.156, 23.9965, -118.871 ), PoolVector2Array( 230.561, 149.613, 229.439, 16.04, 102.601, 16.04, 105.968, 148.491 ), PoolVector2Array( 104.846, 181.042, 230.561, 179.919, 230.561, 317.982, 106.167, 317.327 ), PoolVector2Array( 105.276, 343.163, 230.893, 341.381, 230.893, 474.125, 102.603, 473.234 ), PoolVector2Array( 101.93, 499, 229.93, 501, 226.93, 625, 99.9295, 621 ), PoolVector2Array( 425.315, 12.9092, 619.155, 11.72, 621.534, 149.668, 422.936, 149.668 ), PoolVector2Array( 421.747, 179.398, 619.155, 181.777, 620.345, 313.779, 421.747, 313.779 ), PoolVector2Array( 420.558, 341.13, 621.534, 344.698, 623.912, 470.754, 420.558, 468.375 ), PoolVector2Array( 419.789, 500.043, 621.954, 501.232, 623.143, 627.288, 423.356, 622.531 ), PoolVector2Array( 824.595, 4.98469, 825.855, 143.576, 948.067, 146.096, 941.768, 10.0244 ), PoolVector2Array( 823.335, 180.114, 945.547, 182.634, 946.807, 301.066, 824.595, 303.586 ), PoolVector2Array( 824.595, 335.084, 945.548, 340.124, 944.288, 477.455, 825.855, 472.415 ), PoolVector2Array( 822.075, 498.874, 944.288, 503.913, 940.508, 622.346, 828.375, 624.866 ) ]
 
+[sub_resource type="Curve2D" id=15]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 14.3307, 472.927, 0, 0, 0, 0, 1000.04, 471.513, 0, 0, 0, 0, 991.552, 4.82227, 0, 0, 0, 0, 35.5439, 4.82227, 0, 0, 0, 0, 15.7449, 468.684, 0, 0, 0, 0, 15, 465 )
+}
+
 [node name="Main" type="Node2D"]
 position = Vector2( -10.6787, 0 )
 script = ExtResource( 6 )
@@ -385,6 +391,7 @@ position = Vector2( 473.08, 395.591 )
 position = Vector2( 473.526, 555.987 )
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
+visible = false
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
 position = Vector2( 0.749161, 0 )
@@ -392,8 +399,16 @@ navpoly = SubResource( 14 )
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="Skeleton" parent="Enemies" instance=ExtResource( 7 )]
-position = Vector2( 666.831, -25.2269 )
+[node name="Dragon" type="Path2D" parent="Enemies"]
+curve = SubResource( 15 )
+script = ExtResource( 7 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Dragon"]
+position = Vector2( 14.3307, 472.927 )
+rotation = -0.00144126
+rotate = false
+
+[node name="KinematicBody2D" parent="Enemies/Dragon/PathFollow2D" instance=ExtResource( 4 )]
 
 [node name="HUD_GUI" parent="." instance=ExtResource( 5 )]
 
