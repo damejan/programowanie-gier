@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var speed = 280; # base speed for all characters
+export var speed = 180; # base speed for all characters
 #var max_speed = 300; # base max_speed for all characters
 var resistance = 0.1; # 0.1s
 
