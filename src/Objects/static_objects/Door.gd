@@ -7,13 +7,16 @@ var doors_opened = preload("res://Graphics/Tilesets/Map_elements/doors/doors_ope
 var doors_opened_arc = preload("res://Graphics/Tilesets/Map_elements/doors/doors_open_arc.png")
 
 func open_door():
-	$core_door/CollisionShape2D.disabled = true;
+#	print($core_door/CollisionShape2D.disabled)
+#	$core_door/CollisionShape2D.disabled = true
+	$core_door.queue_free();
 	$Sprite.texture = doors_opened
 	$Sprite_arc.texture = doors_opened_arc
-	$Sprite_arc.z_index = 2;
+	$Sprite_arc.z_index = 2
 	
 func close_door():
-	$core_door/CollisionShape2D.disabled = false;
+#	print($core_door/CollisionShape2D.disabled)
+#	$core_door/CollisionShape2D.disabled = false
 	$Sprite.texture = doors_closed
 	$Sprite_arc.texture = doors_closed_arc
-	$Sprite_arc.z_index = 2;
+	$Sprite_arc.z_index = 2

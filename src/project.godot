@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="ProjektZaliczeniowy"
-run/main_scene="res://Scenes/Main.tscn"
+run/main_scene="res://Scenes/Menu/MainMenu.tscn"
 
 [autoload]
 

@@ -7,18 +7,20 @@ var resistance = 0.1; # 0.1s
 var hp = 10
 
 onready var navigation = get_tree().get_root().find_node("Navigation2D", true, false)
-onready var player = get_parent().get_parent().get_node("Hero")
+onready var player = get_tree().get_root().find_node("Hero", true, false)
 
 var path
 
+var active = false
 
 func _ready():
 	update_path(position, player.position)
 	print("test from slime ready: ", name)
 
 func _process(delta):
-	var walk_distance = speed * delta
-	move_along_path(walk_distance)
+	if active:
+		var walk_distance = speed * delta
+		move_along_path(walk_distance)
 
 
 func update_path(start_position, end_position):
@@ -74,6 +76,7 @@ func _on_HitBox_area_entered(area):
 		$AudioStreamPlayer.play()
 		area.get_parent().queue_free()
 		if hp < 0:
+			get_parent().get_parent().enemy_killed()
 			queue_free();
 
 #var speed = 30; # base speed for all characters

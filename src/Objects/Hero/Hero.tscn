@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Graphics/Characters/Hero/wizzard_m_idle_anim_f1.png" type="Texture" id=1]
 [ext_resource path="res://Graphics/Characters/Hero/wizzard_m_idle_anim_f2.png" type="Texture" id=2]
@@ -9,17 +9,18 @@
 [ext_resource path="res://Graphics/Characters/Hero/wizzard_m_run_anim_f0.png" type="Texture" id=7]
 [ext_resource path="res://Graphics/Characters/Hero/wizzard_m_run_anim_f2.png" type="Texture" id=8]
 [ext_resource path="res://Graphics/Characters/Hero/wizzard_m_run_anim_f1.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Hero/Camera2D.gd" type="Script" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "Mage_idle",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Mage_idle",
 "speed": 10.0
 } ]
 
@@ -85,6 +86,7 @@ position = Vector2( 0, -0.166855 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 1 )
 animation = "Mage_idle"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -92,16 +94,19 @@ position = Vector2( 5.03967, 26.948 )
 shape = SubResource( 2 )
 
 [node name="Hitbox" type="Area2D" parent="."]
-collision_mask = 6
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2( 5.28969, 26.7798 )
 shape = SubResource( 3 )
 disabled = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." groups=[
+"Player_camera",
+]]
 current = true
 smoothing_enabled = true
+script = ExtResource( 10 )
 
 [node name="Reload_speed" type="Timer" parent="."]
 one_shot = true
@@ -116,8 +121,6 @@ anims/hurt = SubResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Foot"]
 position = Vector2( 3.27031, 45.7844 )
 shape = SubResource( 5 )
-[connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
-[connection signal="area_exited" from="Hitbox" to="." method="_on_Hitbox_area_exited"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
 [connection signal="body_exited" from="Hitbox" to="." method="_on_Hitbox_body_exited"]
 [connection signal="timeout" from="Reload_speed" to="." method="_on_Reload_speed_timeout"]

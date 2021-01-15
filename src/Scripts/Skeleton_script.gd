@@ -4,12 +4,14 @@ export var speed = 180; # base speed for all characters
 #var max_speed = 300; # base max_speed for all characters
 var resistance = 0.1; # 0.1s
 
-var hp = 10
+var hp = 2
 
 onready var navigation = get_tree().get_root().find_node("Navigation2D", true, false)
-onready var player = get_parent().get_parent().get_node("Hero")
+onready var player = get_tree().get_root().find_node("Hero", true, false)
 
 var path
+
+var active = false
 
 
 func _ready():
@@ -17,8 +19,9 @@ func _ready():
 	print("test from slime ready: ", name)
 
 func _process(delta):
-	var walk_distance = speed * delta
-	move_along_path(walk_distance)
+	if active:
+		var walk_distance = speed * delta
+		move_along_path(walk_distance)
 
 
 func update_path(start_position, end_position):
@@ -81,7 +84,9 @@ func _on_Hitbox_area_entered(area):
 		$Particles2D.emitting = true;
 		$AudioStreamPlayer.play()
 		area.get_parent().queue_free()
+#		get_parent().get_parent().find_node("Doors").open_door()
 		if hp < 0:
+			get_parent().get_parent().enemy_killed()
 			queue_free();
 
 #var speed = 30; # base speed for all characters

@@ -3,10 +3,10 @@
 [ext_resource path="res://Graphics/Background/Background_final.png" type="Texture" id=1]
 [ext_resource path="res://Graphics/Background/Rock.png" type="Texture" id=2]
 [ext_resource path="res://Objects/Hero/Hero.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Area.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/GUI/HUD_GUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=6]
 [ext_resource path="res://Objects/Skeleton.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Objects/static_objects/Door.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 32, 0, 12, 16, 12, 16, 28, 4, 28, 4, 32 )
@@ -328,9 +328,6 @@ collision_mask = 2147483648
 format = 1
 tile_data = PoolIntArray( -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, 65548, 0, 0, 131084, 0, 0, 196611, 0, 0, 196615, 0, 0, 196616, 0, 0, 196620, 0, 0, 262147, 0, 0, 262151, 0, 0, 262152, 0, 0, 262156, 0, 0, 327683, 0, 0, 393219, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0 )
 
-[node name="Doors" parent="." instance=ExtResource( 9 )]
-position = Vector2( 442.487, -188.803 )
-
 [node name="Hero" parent="." instance=ExtResource( 3 )]
 z_index = 1
 
@@ -340,12 +337,16 @@ z_index = 1
 position = Vector2( 0.749161, 0 )
 navpoly = SubResource( 14 )
 
-[node name="Enemies" type="Node" parent="."]
+[node name="Area1" parent="." instance=ExtResource( 4 )]
 
-[node name="Skeleton" parent="Enemies" instance=ExtResource( 7 )]
-position = Vector2( 903.479, 569.357 )
+[node name="Skeleton" parent="Area1/Enemies" index="0" instance=ExtResource( 7 )]
+position = Vector2( 951.766, 217.789 )
 
-[node name="Skeleton2" parent="Enemies" instance=ExtResource( 7 )]
-position = Vector2( 855.533, -74.9154 )
+[node name="Skeleton2" parent="Area1/Enemies" index="1" instance=ExtResource( 7 )]
+position = Vector2( 278.6, -31.1127 )
 
 [node name="HUD_GUI" parent="." instance=ExtResource( 5 )]
+
+[editable path="Area1"]
+
+[editable path="HUD_GUI"]

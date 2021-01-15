@@ -24,11 +24,13 @@ func _process(delta):
 		$Reload_speed.start()
 		can_shoot = false
 	
-	if Input.is_action_pressed("test1"):
-		get_tree().call_group("Door", "open_door")
+#	if Input.is_action_pressed("test1"):
+#		get_tree().call_group("Door", "open_door")
+#		get_parent().find_node("Doors").open_door();
 		
-	if Input.is_action_pressed("test2"):
-		get_tree().call_group("Door", "close_door")
+#	if Input.is_action_pressed("test2"):
+#		get_tree().call_group("Door", "close_door")
+#		get_parent().find_node("Doors").close_door();
 
 func _physics_process(delta):
 	update_movement()

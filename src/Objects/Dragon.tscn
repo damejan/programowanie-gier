@@ -13,15 +13,17 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="Dragon" type="KinematicBody2D"]
 position = Vector2( 0.314972, -27.0883 )
 scale = Vector2( 4, 4 )
+collision_layer = 2
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 playing = true
 
 [node name="Hitbox" type="Area2D" parent="AnimatedSprite"]
+collision_layer = 2147483650
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="AnimatedSprite/Hitbox"]
 polygon = PoolVector2Array( 7.44933, 0.0283737, 7.51555, 8.70273, 5.26419, 8.70273, 5.59527, 14.9271, -6.51124, 15.0926, -6.52234, -3.4811, 0.695255, -3.41488, 2.8804, -0.435142 )
