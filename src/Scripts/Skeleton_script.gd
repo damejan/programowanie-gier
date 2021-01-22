@@ -86,6 +86,7 @@ func _on_Hitbox_area_entered(area):
 		area.get_parent().queue_free()
 #		get_parent().get_parent().find_node("Doors").open_door()
 		if hp < 0:
+			Global.add_score(2);
 			get_parent().get_parent().enemy_killed()
 			queue_free();
 

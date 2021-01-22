@@ -1,6 +1,10 @@
 extends Node
 
-var hp = 5
+var initial_hp = 6
+var hp = initial_hp
+
+var score = 0
+var highest_score = 0
 
 var node_creation_parent = null
 
@@ -11,16 +15,24 @@ func instance_node(node, location, parent):
 	return node_instance
 
 func update_GUI():
-	get_tree().call_group("GUI", "update_gui", hp)
+	get_tree().call_group("GUI", "update_hp", hp)
 	
 func hurt_player():
 	hp -= 1
 	update_GUI()
 	
-	if hp < 0:
+	if hp == 0:
 		end_game()
+		
+func add_score(value):
+	score += value
+	if score > highest_score:
+		highest_score = score;
+	get_tree().call_group("GUI", "update_score")
 		
 func end_game():
 	get_tree().reload_current_scene()
-	hp = 5
+	score = 0
+	hp = initial_hp
 	update_GUI()
+	get_tree().call_group("GUI", "update_score")

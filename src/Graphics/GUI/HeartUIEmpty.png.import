@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Hp.png-f04857ebb7190ea3adf7af0c8e0ea1ca.stex"
+path="res://.import/HeartUIEmpty.png-fcbf2faac9e0bc357476412b438c32a7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/GUI/Hp.png"
-dest_files=[ "res://.import/Hp.png-f04857ebb7190ea3adf7af0c8e0ea1ca.stex" ]
+source_file="res://Graphics/GUI/HeartUIEmpty.png"
+dest_files=[ "res://.import/HeartUIEmpty.png-fcbf2faac9e0bc357476412b438c32a7.stex" ]
 
 [params]
 

@@ -76,6 +76,7 @@ func _on_HitBox_area_entered(area):
 		$AudioStreamPlayer.play()
 		area.get_parent().queue_free()
 		if hp < 0:
+			Global.add_score(1);
 			get_parent().get_parent().enemy_killed()
 			queue_free();
 
