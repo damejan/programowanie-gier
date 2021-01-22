@@ -12,7 +12,7 @@ func enemy_killed():
 		if door:
 			door.open_door();
 		else:
-			print("door doesn't exist")
+			get_tree().change_scene(Global.random_level())
 
 
 func _on_AreaActivator_area_entered(area):

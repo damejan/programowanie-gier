@@ -385,6 +385,7 @@ position = Vector2( 644.57, 67.648 )
 
 [node name="Slime" parent="Areas/Area1/Enemies" index="1" instance=ExtResource( 10 )]
 position = Vector2( 784.176, -9.52441 )
+can_shot_to_player = true
 
 [node name="Area2" parent="Areas" instance=ExtResource( 4 )]
 

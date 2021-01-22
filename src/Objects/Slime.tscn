@@ -32,7 +32,7 @@ height = 13.0239
 radius = 9.30396
 height = 13.4495
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticlesMaterial" id=4]
 emission_shape = 1
 emission_sphere_radius = 18.0
 flag_disable_z = true
@@ -76,10 +76,13 @@ emitting = false
 amount = 14
 lifetime = 0.4
 one_shot = true
-process_material = SubResource( 5 )
+process_material = SubResource( 4 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
+
+[node name="Can_shoot" type="Timer" parent="."]
 [connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_HitBox_body_entered"]
 [connection signal="body_exited" from="HitBox" to="." method="_on_HitBox_body_exited"]
+[connection signal="timeout" from="Can_shoot" to="." method="_on_Can_shoot_timeout"]

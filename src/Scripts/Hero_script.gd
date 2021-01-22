@@ -33,6 +33,7 @@ func _process(delta):
 #		get_parent().find_node("Doors").close_door();
 
 func _physics_process(delta):
+	Global.player_position = global_position
 	update_movement()
 	play_animation()
 	move_and_slide(motion)
@@ -124,11 +125,10 @@ func _on_Enemy_in_hitbox_timeout():
 	if static_enemy_in_hitbox:
 		hurt_from_area()
 
-#func _on_Hitbox_area_entered(area):
-#	if area.is_in_group("Player_damager"):
-#		hurt_from_area()
-#		static_enemy_in_hitbox = true;
-#		$Enemy_in_hitbox.start()
+func _on_Hitbox_area_entered(area):
+	if area.is_in_group("bullet_enemy"):
+		area.get_parent().queue_free()
+		hurt_from_area()
 
 
 #func _on_Hitbox_area_exited(area):

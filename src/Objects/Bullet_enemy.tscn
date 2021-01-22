@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Graphics/Characters/Hero/Bullet.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/Bullet.gd" type="Script" id=2]
+[ext_resource path="res://Objects/Bullet_enemy.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6.40902, 6.37621 )
@@ -16,10 +16,10 @@ script = ExtResource( 2 )
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 
 [node name="Hitbox" type="Area2D" parent="." groups=[
-"Enemy_damager",
+"bullet_enemy",
 ]]
 visible = false
-collision_mask = 2
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2( -7.14761, 7.46296 )

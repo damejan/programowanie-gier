@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+export var can_shot_to_player = false
+
 export var speed = 250; # base speed for all characters
 #var max_speed = 300; # base max_speed for all characters
 var resistance = 0.1; # 0.1s
@@ -8,10 +10,15 @@ var hp = 10
 
 onready var navigation = get_tree().get_root().find_node("Navigation2D", true, false)
 onready var player = get_tree().get_root().find_node("Hero", true, false)
+var bullet = preload("res://Objects/Bullet_enemy.tscn")
 
 var path
 
 var active = false
+
+var can_shoot = true
+
+
 
 func _ready():
 	update_path(position, player.position)
@@ -21,6 +28,12 @@ func _process(delta):
 	if active:
 		var walk_distance = speed * delta
 		move_along_path(walk_distance)
+		
+		if can_shot_to_player:
+			if Global.node_creation_parent != null and can_shoot:
+				Global.instance_node(bullet, global_position, Global.node_creation_parent)
+				$Can_shoot.start()
+				can_shoot = false;
 
 
 func update_path(start_position, end_position):
@@ -159,3 +172,7 @@ func _on_HitBox_area_entered(area):
 ##		motion = -motion * 4;
 #		hp -= 1
 #		area.get_parent().queue_free()
+
+
+func _on_Can_shoot_timeout():
+	can_shoot = true
