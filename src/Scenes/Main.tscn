@@ -7,9 +7,9 @@
 [ext_resource path="res://Scenes/GUI/HUD_GUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=6]
 [ext_resource path="res://Objects/Skeleton.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Objects/static_objects/Spikes.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Area_without_door.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Objects/Slime.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Objects/Slime_2.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 32, 0, 12, 16, 12, 16, 28, 4, 28, 4, 32 )
@@ -367,9 +367,6 @@ tile_data = PoolIntArray( 196615, 0, 0, 196621, 0, 0, 458759, 0, 0, 458765, 0, 0
 
 [node name="Spikes" type="Node" parent="."]
 
-[node name="Spike" parent="Spikes" instance=ExtResource( 8 )]
-position = Vector2( 151, 76 )
-
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
@@ -386,6 +383,9 @@ position = Vector2( 644.57, 67.648 )
 [node name="Slime" parent="Areas/Area1/Enemies" index="1" instance=ExtResource( 10 )]
 position = Vector2( 784.176, -9.52441 )
 can_shot_to_player = true
+
+[node name="Slime2" parent="Areas/Area1/Enemies" index="2" instance=ExtResource( 11 )]
+position = Vector2( 898.104, 315.028 )
 
 [node name="Area2" parent="Areas" instance=ExtResource( 4 )]
 
@@ -428,8 +428,6 @@ position = Vector2( 650.51, -1207.79 )
 z_index = 1
 
 [node name="HUD_GUI" parent="." instance=ExtResource( 5 )]
-
-[editable path="Spikes/Spike"]
 
 [editable path="Areas/Area1"]
 

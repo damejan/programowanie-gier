@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export var can_shot_to_player = false
 
-export var speed = 250; # base speed for all characters
+export var speed = 220; # base speed for all characters
 #var max_speed = 300; # base max_speed for all characters
 var resistance = 0.1; # 0.1s
 

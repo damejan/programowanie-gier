@@ -1,27 +1,28 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Graphics/Characters/Hero/Bullet.png" type="Texture" id=1]
+[ext_resource path="res://Graphics/Tilesets/WhiteGoo/GooBullet.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Bullet_enemy.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 6.40902, 6.37621 )
+extents = Vector2( 2.95104, 3.1808 )
 
 [node name="Bullet" type="Sprite"]
-position = Vector2( -0.18729, -0.187286 )
-scale = Vector2( 2, 2 )
+position = Vector2( -0.18729, -1.12373 )
+scale = Vector2( 4, 4 )
 z_index = 1
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( -0.140472, 8.0534 )
+scale = Vector2( 0.311715, 0.307033 )
 
 [node name="Hitbox" type="Area2D" parent="." groups=[
 "bullet_enemy",
 ]]
-visible = false
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2( -7.14761, 7.46296 )
+position = Vector2( -0.217941, 8.02483 )
 shape = SubResource( 1 )
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

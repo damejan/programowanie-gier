@@ -1,7 +1,7 @@
 extends Sprite
 
 var velocity = Vector2(1, 0)
-var speed = 400
+var speed = 500
 
 var look_once = true
 

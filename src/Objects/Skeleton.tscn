@@ -1,15 +1,15 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Graphics/Characters/Skeleton/skelet_run_anim_f1.png" type="Texture" id=1]
-[ext_resource path="res://Graphics/Characters/Skeleton/skelet_run_anim_f2.png" type="Texture" id=2]
-[ext_resource path="res://Graphics/Characters/Skeleton/skelet_run_anim_f0.png" type="Texture" id=3]
-[ext_resource path="res://Graphics/Characters/Skeleton/skelet_run_anim_f3.png" type="Texture" id=4]
+[ext_resource path="res://Graphics/Tilesets/Skeleton/Skeleton4.png" type="Texture" id=1]
+[ext_resource path="res://Graphics/Tilesets/Skeleton/Skeleton3.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/Tilesets/Skeleton/Skeleton2.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/Tilesets/Skeleton/Skeleton1.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/Skeleton_script.gd" type="Script" id=5]
 [ext_resource path="res://Sounds/Skeleton_death.wav" type="AudioStream" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "Skeleton_run",
 "speed": 10.0
@@ -32,13 +32,16 @@ collision_mask = 2
 script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0.25, -8.91667 )
 frames = SubResource( 1 )
 animation = "Skeleton_run"
+frame = 2
 playing = true
 
 [node name="Hitbox" type="Area2D" parent="AnimatedSprite"]
 
 [node name="Hitbox_collision" type="CollisionPolygon2D" parent="AnimatedSprite/Hitbox"]
+position = Vector2( -0.166667, 9 )
 scale = Vector2( 4, 4 )
 build_mode = 1
 polygon = PoolVector2Array( -1.30234, -1.85293, 1.26479, -1.84053, 1.23998, 0.441362, 1.22758, 0.602583, 0.619906, 0.639788, 0.991953, 0.887819, 1.01676, 1.66912, -1.22793, 1.66912, -1.20312, 0.90022, -0.707062, 0.763803, -1.27753, 0.428961 )

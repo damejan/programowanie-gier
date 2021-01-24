@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Levels/PathOfDragon.gd" type="Script" id=1]
+[ext_resource path="res://Objects/Dragon.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 14.3307, 472.927, 0, 0, 0, 0, 1000.04, 471.513, 0, 0, 0, 0, 991.552, 4.82227, 0, 0, 0, 0, 19.9323, 2.26799, 0, 0, 0, 0, 15.7449, 468.684, 0, 0, 0, 0, 15, 465, 0, 0, 0, 0, 14.3307, 472.927 )
+}
+
+[node name="Enemies" type="Node"]
+
+[node name="Dragon" type="Path2D" parent="."]
+curve = SubResource( 1 )
+script = ExtResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Dragon"]
+position = Vector2( 14.3307, 472.927 )
+rotation = -0.00144126
+rotate = false
+
+[node name="KinematicBody2D" parent="Dragon/PathFollow2D" instance=ExtResource( 3 )]
