@@ -90,7 +90,8 @@ func play_animation():
 #Shooting bullet
 
 func hurt(body):
-	motion = (global_position - body.position) * (speed * 0.8)
+	if body.name != "Dragon":
+		motion = (global_position - body.position) * (speed * 0.8)
 #	get_tree().call_group("Enemies", "player_moved_change_path")
 	Global.hurt_player()
 	$AnimationPlayer.play("hurt")

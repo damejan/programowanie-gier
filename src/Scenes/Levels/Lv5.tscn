@@ -6,8 +6,8 @@
 [ext_resource path="res://Scenes/Path_and_dragon.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/GUI/HUD_GUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Area.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/static_objects/Spikes.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Objects/static_objects/Door.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 32, 0, 12, 16, 12, 16, 28, 4, 28, 4, 32 )
@@ -328,9 +328,6 @@ collision_layer = 4
 collision_mask = 2147483648
 format = 1
 
-[node name="Doors" parent="." instance=ExtResource( 9 )]
-position = Vector2( 442.487, -188.803 )
-
 [node name="Hero" parent="." instance=ExtResource( 3 )]
 z_index = 1
 
@@ -391,9 +388,14 @@ visible = false
 position = Vector2( 0.749161, 0 )
 navpoly = SubResource( 14 )
 
-[node name="Enemies" parent="." instance=ExtResource( 4 )]
-
 [node name="HUD_GUI" parent="." instance=ExtResource( 5 )]
+
+[node name="Area1" parent="." instance=ExtResource( 7 )]
+
+[node name="camera_limit_position" parent="Area1" index="0"]
+position = Vector2( -32.6105, -207.33 )
+
+[node name="Path_and_dragon" parent="Area1/Enemies" index="0" instance=ExtResource( 4 )]
 
 [editable path="Spikes/Spike"]
 
@@ -424,3 +426,5 @@ navpoly = SubResource( 14 )
 [editable path="Spikes/Spike7"]
 
 [editable path="Spikes/Spike8"]
+
+[editable path="Area1"]

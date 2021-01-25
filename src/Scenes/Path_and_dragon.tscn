@@ -8,7 +8,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 14.3307, 472.927, 0, 0, 0, 0, 1000.04, 471.513, 0, 0, 0, 0, 991.552, 4.82227, 0, 0, 0, 0, 19.9323, 2.26799, 0, 0, 0, 0, 15.7449, 468.684, 0, 0, 0, 0, 15, 465, 0, 0, 0, 0, 14.3307, 472.927 )
 }
 
-[node name="Enemies" type="Node"]
+[node name="Path_and_dragon" type="Node"]
 
 [node name="Dragon" type="Path2D" parent="."]
 curve = SubResource( 1 )
@@ -19,4 +19,4 @@ position = Vector2( 14.3307, 472.927 )
 rotation = -0.00144126
 rotate = false
 
-[node name="KinematicBody2D" parent="Dragon/PathFollow2D" instance=ExtResource( 3 )]
+[node name="Dragon" parent="Dragon/PathFollow2D" instance=ExtResource( 3 )]

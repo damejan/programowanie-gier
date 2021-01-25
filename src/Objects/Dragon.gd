@@ -11,7 +11,7 @@ func _process(delta):
 		anim.play("default")
 		anim.flip_h = true
 		
-	print(global_position.normalized())
+#	print(global_position.normalized())
 
 
 func _on_Hitbox_area_entered(area):
@@ -22,8 +22,9 @@ func _on_Hitbox_area_entered(area):
 #		get_parent().get_parent().find_node("Doors").open_door()
 		if hp < 0:
 			Global.add_score(2);
-			get_parent().get_parent().enemy_killed()
-			queue_free();
+#			print(get_parent().get_parent().get_parent().get_parent().get_parent().name)
+			get_parent().get_parent().get_parent().get_parent().get_parent().enemy_killed()
+			get_parent().get_parent().get_parent().queue_free();
 
 
 #DO NAPRAWY SMIERC SMOKA

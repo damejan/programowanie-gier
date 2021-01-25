@@ -22,5 +22,6 @@ func _on_AreaActivator_area_entered(area):
 	get_tree().call_group("Player_camera", "change_top_limit", camera_pos.position.y)
 	for enemy in enemies:
 		print("asdf: ", enemy.name)
-		enemy.active = true
+		if enemy.name != "Path_and_dragon":
+			enemy.active = true
 	$AreaActivator.queue_free()

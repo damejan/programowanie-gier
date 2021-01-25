@@ -16,7 +16,7 @@ position = Vector2( -36.615, -210 )
 position = Vector2( 431.808, -188.803 )
 
 [node name="AreaActivator" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 2147483648
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaActivator"]
 shape = SubResource( 1 )

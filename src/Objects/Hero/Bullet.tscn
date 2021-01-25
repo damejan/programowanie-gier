@@ -19,6 +19,7 @@ script = ExtResource( 2 )
 "Enemy_damager",
 ]]
 visible = false
+collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
