@@ -524,14 +524,14 @@ position = Vector2( 913.03, 9.34387 )
 
 [node name="Slime" parent="Area1/Enemies" index="1" instance=ExtResource( 9 )]
 position = Vector2( 591.808, 222.469 )
+can_shot_to_player = true
 
 [node name="Slime2" parent="Area1/Enemies" index="2" instance=ExtResource( 9 )]
-position = Vector2( 712, 18 )
+position = Vector2( 713.186, 18 )
 can_shot_to_player = true
 
 [node name="Slime3" parent="Area1/Enemies" index="3" instance=ExtResource( 10 )]
-position = Vector2( 431.808, 357.976 )
-can_shot_to_player = true
+position = Vector2( 431.808, 342.143 )
 
 [node name="Area2" parent="." instance=ExtResource( 4 )]
 
