@@ -4,7 +4,7 @@
 [ext_resource path="res://Objects/static_objects/Door.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 218.295, 127.043 )
+extents = Vector2( 146.042, 64.4297 )
 
 [node name="Area1" type="Node"]
 script = ExtResource( 3 )
