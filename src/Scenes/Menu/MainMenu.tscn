@@ -35,10 +35,10 @@ __meta__ = {
 
 [node name="Button" type="Button" parent="."]
 show_behind_parent = true
-anchor_left = 0.441406
-anchor_top = 0.273333
-anchor_right = 0.546875
-anchor_bottom = 0.365
+anchor_left = 0.438118
+anchor_top = 0.400545
+anchor_right = 0.543586
+anchor_bottom = 0.492212
 mouse_default_cursor_shape = 2
 __meta__ = {
 "_edit_use_anchors_": true
