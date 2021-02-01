@@ -48,6 +48,14 @@ func end_game():
 	get_tree().call_group("GUI", "update_score")
 	
 
+func volume_down():
+	if $Background_music.volume_db >= -80:
+		$Background_music.volume_db -= 1
+
+func volume_up():
+	if $Background_music.volume_db <= 24:
+		$Background_music.volume_db += 1
+
 #func get_random_numbers(from, to):
 #    var arr = []
 #    for i in range(from,to):
