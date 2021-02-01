@@ -18,6 +18,7 @@ func _on_Hitbox_area_entered(area):
 	if area.is_in_group("Enemy_damager"):
 		hp -= 1
 		$Particles2D.emitting = true;
+		$AudioStreamPlayer.play()
 		area.get_parent().queue_free()
 #		get_parent().get_parent().find_node("Doors").open_door()
 		if hp < 0:
