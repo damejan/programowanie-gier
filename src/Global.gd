@@ -15,7 +15,8 @@ var levels = [
 	"res://Scenes/Levels/Lv2.tscn",
 	"res://Scenes/Levels/Lv3.tscn",
 	"res://Scenes/Levels/Lv4.tscn",
-	"res://Scenes/Levels/Lv5.tscn"
+	"res://Scenes/Levels/Lv5.tscn",
+	"res://Scenes/Main.tscn"
 ]
 
 func instance_node(node, location, parent):
