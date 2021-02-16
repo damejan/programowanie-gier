@@ -12,9 +12,5 @@ func _process(delta):
 	
 	global_position += velocity.rotated(rotation) * speed * delta
 
-#func _on_VisibilityNotifier2D_screen_exited():
-#	queue_free()
-
-
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()

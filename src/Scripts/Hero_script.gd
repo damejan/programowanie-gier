@@ -73,19 +73,6 @@ func play_animation():
 		$AnimatedSprite.flip_h = true;
 	else:
 		$AnimatedSprite.play("Mage_idle")
-		
-#	if Input.is_action_pressed("player_down") or Input.is_action_pressed("player_up"):
-#		$AnimatedSprite.play("run")
-#	elif Input.is_action_pressed("player_left") and not Input.is_action_pressed("player_right"):
-#		$AnimatedSprite.play("run")
-#		$AnimatedSprite.flip_h = true;
-#	elif Input.is_action_pressed("player_right") and not Input.is_action_pressed("player_left"):
-#		$AnimatedSprite.play("run")
-#		$AnimatedSprite.flip_h = false;
-#	else:
-#		$AnimatedSprite.play("Mage_idle")
-
-#Shooting bullet
 
 func hurt(body):
 	if body.name != "Dragon":
@@ -128,12 +115,6 @@ func _on_Hitbox_area_entered(area):
 	if area.is_in_group("bullet_enemy"):
 		area.get_parent().queue_free()
 		hurt_from_area()
-
-
-#func _on_Hitbox_area_exited(area):
-#	if area.is_in_group("Player_damager"):
-#		static_enemy_in_hitbox = false
-
 
 func _on_Foot_area_entered(area):
 	if area.is_in_group("Player_damager"):

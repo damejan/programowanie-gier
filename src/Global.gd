@@ -57,12 +57,5 @@ func volume_up():
 	if $Background_music.volume_db <= 24:
 		$Background_music.volume_db += 1
 
-#func get_random_numbers(from, to):
-#    var arr = []
-#    for i in range(from,to):
-#        arr.append(i)
-#    arr.shuffle()
-#    return arr
-
 func random_level():
 	return levels[0 + randi() % (len(levels) - 0)]
